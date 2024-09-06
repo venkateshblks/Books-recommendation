@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from recommend import load_data, create_user_item_matrix, calculate_user_similarity, recommend_books
 
-data = load_data('df3.csv')
+data = load_data('data.csv')
 user_item_matrix = create_user_item_matrix(data)
 user_similarity_df = calculate_user_similarity(user_item_matrix)
 user_ids = sorted(user_item_matrix.index.tolist())
