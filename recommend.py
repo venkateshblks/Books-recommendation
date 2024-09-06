@@ -1,19 +1,20 @@
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+import streamlit as st
 
-# Load data
+@st.cache_data
 def load_data(filepath):
     data = pd.read_csv(filepath)
     return data
 
-# Create user-item matrix
+@st.cache_data
 def create_user_item_matrix(data):
     user_item_matrix = data.pivot_table(index='User-ID', columns='Book-Title', values='Book-Rating')
     user_item_matrix.fillna(0, inplace=True)
     return user_item_matrix
 
-# Calculate similarity between users
+@st.cache_data
 def calculate_user_similarity(user_item_matrix):
     user_similarity = cosine_similarity(user_item_matrix)
     user_similarity_df = pd.DataFrame(user_similarity, index=user_item_matrix.index, columns=user_item_matrix.index)
