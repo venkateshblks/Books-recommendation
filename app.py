@@ -16,7 +16,7 @@ data, user_item_matrix, user_similarity_df, user_ids = initialize_data()
 # user_item_matrix = create_user_item_matrix(data)
 # user_similarity_df = calculate_user_similarity(user_item_matrix)
 # user_ids = sorted(user_item_matrix.index.tolist())
-st.title('Book Recommendation System')
+st.title('Books Recommendation System')
 user_id = st.selectbox(
     'Select your User ID:',
     options=user_ids,
